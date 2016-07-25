@@ -53,7 +53,10 @@
             file = [NSURL fileURLWithPath:fullPath];
         } else if ([fileName hasPrefix:@"file://"]) {
             // stripping the first 6 chars, because the path should start with / instead of file://
-            file = [NSURL fileURLWithPath:[fileName substringFromIndex:6]];
+            //file = [NSURL fileURLWithPath:[fileName substringFromIndex:6]]; Removed By Manpreet Singh
+            //change By Manpreet (this is code for match the file)
+            file = [NSURL fileURLWithPath:fileName];
+            //End of the changes
         } else if ([fileName hasPrefix:@"data:"]) {
             // using a base64 encoded string
             // extract some info from the 'fileName', which is for example: data:text/calendar;base64,<encoded stuff here>
